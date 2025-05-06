@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Login – JVA Alcatraz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="login-section">
+    <div id="login-box">
+      <h2>🔒 Login erforderlich</h2>
+      <form id="login-form">
+        <input type="text" id="username" placeholder="Benutzername" required>
+        <input type="password" id="password" placeholder="Passwort" required>
+        <input type="submit" value="Anmelden">
+        <div class="error" id="error-msg"></div>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+      const errorMsg = document.getElementById('error-msg');
+      if (user === 'alcatraz' && pass === '1234') {
+        window.location.href = 'home.html';
+      } else {
+        errorMsg.textContent = 'Zugang verweigert – falscher Benutzername oder Passwort!';
+      }
+    });
+  </script>
+</body>
+</html>
